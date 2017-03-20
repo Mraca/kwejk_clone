@@ -1,1 +1,9 @@
-<h1><%= photo.title %></h1>
+<h1 class="title">
+	<%= @photo.title %>
+</h1>
+
+<p class="date">
+	Wstawione <%= time_ago_in_words (@photo.created_at) %> temu
+</p>
+
+<%= link_to "Back", root_path %>

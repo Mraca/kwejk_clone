@@ -1,1 +1,11 @@
+<%= link_to "New Photo", new_photo_path %>
+
 <h1>All photos</h1>
+
+<% @photos.each do |photo| %>
+	<div class="post_wrapper">
+		<h2 class="title">
+			<%= link_to photo.title, photo %>
+		</h2>
+	</div>
+<% end %>

@@ -1,10 +1,6 @@
 class PhotosController < ApplicationController
 	def index
-		@photos = Photo.all
-	end
-
-	def show
-		@photo = Photo.find(params_id)
+		@photos = Photo.all.order('created_at DESC')
 	end
 
 	def new
@@ -13,6 +9,13 @@ class PhotosController < ApplicationController
 
 	def create
 		@photo = Photo.new(photo_params)
+		@photo.save
+
+		redirect_to @photo
+	end
+
+	def show
+		@photo = Photo.find(params[:id])
 	end
 
 	private
