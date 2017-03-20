@@ -1,10 +1,10 @@
-<%= form_for :photo, url: photos_path do |f| %>
+<%= form_for @photo do |f| %>
 	<p>
 		<%= f.label :title %><br/>
 		<%= f.text_field :title %>
 	</p>
 	
 	<p>
-	<%= f.submit %>
+		<%= f.submit %>
 	</p>
 <% end %>

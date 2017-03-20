@@ -7,3 +7,5 @@
 </p>
 
 <%= link_to "Back", root_path %>
+<%= link_to "Edit", edit_photo_path %>
+<%= link_to "Delete", photo_path(@photo), method: :delete, data: { confirm: 'Are you sure?' } %>
