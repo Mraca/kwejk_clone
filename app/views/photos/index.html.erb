@@ -1,12 +1,10 @@
-<%= link_to "New Photo", new_photo_path %>
-
 <h1>All photos</h1>
 
 <% @photos.each do |photo| %>
 	<div class="page_wrapper">
 		<h2 class="title">
 			<%= link_to photo.title, photo %>
-			<%= image_tag photo.image.url(:medium) %>
 		</h2>
+		<%= image_tag photo.image.url(:medium) %>
 	</div>
 <% end %>

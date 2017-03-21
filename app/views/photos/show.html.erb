@@ -8,9 +8,12 @@
 </div>
 
 <p class="date">
-	Wstawione <%= time_ago_in_words (@photo.created_at) %> temu
+	Add <%= time_ago_in_words (@photo.created_at) %> ago
 </p>
 
 <%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_photo_path %>
-<%= link_to "Delete", photo_path(@photo), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% if @photo.user == current_user %>
+	<%= link_to "Edit", edit_photo_path %>
+	<%= link_to "Delete", photo_path(@photo), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
