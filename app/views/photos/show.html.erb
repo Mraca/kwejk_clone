@@ -1,6 +1,11 @@
+
 <h1 class="title">
 	<%= @photo.title %>
 </h1>
+
+<div class="image">
+	<%= image_tag @photo.image.url(:large) %>
+</div>
 
 <p class="date">
 	Wstawione <%= time_ago_in_words (@photo.created_at) %> temu

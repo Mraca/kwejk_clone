@@ -6,6 +6,7 @@
 	<div class="page_wrapper">
 		<h2 class="title">
 			<%= link_to photo.title, photo %>
+			<%= image_tag photo.image.url(:medium) %>
 		</h2>
 	</div>
 <% end %>
