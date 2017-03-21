@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@photos = Photo.all.order('created_at DESC')
+		@photos = Photo.all.order('created_at DESC').paginate(page: params[:page], per_page: 3)
 	end
 
 	def new

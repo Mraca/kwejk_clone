@@ -8,3 +8,5 @@
 		<%= image_tag photo.image.url(:medium) %>
 	</div>
 <% end %>
+
+<%= will_paginate @photos, previous_label: "Older", next_label: "Newer" %>
