@@ -37,6 +37,7 @@ gem 'paperclip', '~> 5.1'
 gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

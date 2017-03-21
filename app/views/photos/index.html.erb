@@ -9,4 +9,4 @@
 	</div>
 <% end %>
 
-<%= will_paginate @photos, previous_label: "Older", next_label: "Newer" %>
+<%= will_paginate @photos, renderer: BootstrapPagination::Rails, previous_label: "Older", next_label: "Newer" %>
