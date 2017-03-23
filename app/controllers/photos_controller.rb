@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@photos = Photo.all.order('created_at DESC').paginate(page: params[:page], per_page: 3)
+		@photos = Photo.all.order('created_at DESC').paginate(page: params[:page], per_page: 2)
 	end
 
 	def new
@@ -21,14 +21,15 @@ class PhotosController < ApplicationController
 	end
 
 	def show
+		@comments = Comment.where(photo_id: @photo)
 	end
 
 	def edit
 	end
 
 	def update
-		if @photo.update(params[:photo].permit(:title))
-			redirect_to @photo
+		if @photo.update(photo_params)
+			redirect_to @photo , notice: 'Good Job!'
 		else
 			render 'edit'
 		end
@@ -36,7 +37,7 @@ class PhotosController < ApplicationController
 
 	def destroy
 		@photo.destroy
-		redirect_to root_path
+		redirect_to root_path, notice: 'Why are you doing that?'
 	end
 
 	private

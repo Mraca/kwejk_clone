@@ -1,4 +1,3 @@
-
 <h1 class="title">
 	<%= @photo.title %>
 </h1>
@@ -11,9 +10,18 @@
 	Add <%= time_ago_in_words (@photo.created_at) %> ago
 </p>
 
+<div id="comments">
+	<h2><%= @photo.comments.count %> Comments</h2>
+	<%= render @photo.comments %>
+		
+	<h3>Add a comment</h3>
+	<%= render 'comments/form' %>
+</div>
+
+
 <%= link_to "Back", root_path %>
 
 <% if @photo.user == current_user %>
-	<%= link_to "Edit", edit_photo_path %>
+	<%= link_to "Edit", edit_photo_path(@photo) %>
 	<%= link_to "Delete", photo_path(@photo), method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>

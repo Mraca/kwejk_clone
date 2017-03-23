@@ -10,9 +10,6 @@
 
   <body>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
   <% if user_signed_in? %>
     <%= link_to "New Photo", new_photo_path %>
     <%= link_to "Account", edit_user_registration_path %>
@@ -21,6 +18,9 @@
     <%= link_to "Sign Up", new_user_registration_path %>
     <%= link_to "Sign In", new_user_session_path %>
   <% end %>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
     
     <%= yield %>
 
