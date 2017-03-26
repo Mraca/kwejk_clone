@@ -7,7 +7,7 @@
 </div>
 
 <p class="date">
-	Add <%= time_ago_in_words (@photo.created_at) %> ago
+	Add <%= time_ago_in_words (@photo.created_at) %> ago by <%= @photo.user.email %>
 </p>
 
 <div id="comments">
