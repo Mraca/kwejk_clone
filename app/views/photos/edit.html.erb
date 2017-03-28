@@ -1,5 +1,8 @@
 <div class="page_wrapper">
 	<h2>Edit Photo</h2>
-
+	
+	<p>Current image</p>
+	<%= image_tag @photo.image.url(:medium) %>
+	
 	<%= render 'form' %>
 </div>
