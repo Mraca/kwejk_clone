@@ -20,10 +20,11 @@ class CommentsController < ApplicationController
 
 		if @comment.user == current_user
 			@comment.destroy
+			
+			redirect_to photo_path(@photo)
 		else
 			redirect_to root_path, notice: "You are not create that comment so you can't delete it, SORRY!!"
 		end
 
-		redirect_to photo_path(@photo)
 	end
 end
