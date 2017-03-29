@@ -2,6 +2,10 @@
 	<%= comment.content %>
 </div>
 
-<% if user_signed_in? %>
+<p>
+	<%= comment.user.email %>
+</p>
+
+<% if comment.user == current_user %>
 	<%= link_to 'Delete comment', [comment.photo, comment], method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
