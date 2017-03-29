@@ -17,7 +17,12 @@ class CommentsController < ApplicationController
 	def destroy
 		@photo = Photo.find(params[:photo_id])
 		@comment = @photo.comments.find(params[:id])
-		@comment.destroy
+
+		if @comment.user == current_user
+			@comment.destroy
+		else
+			redirect_to root_path, notice: "You are not create that comment so you can't delete it, SORRY!!"
+		end
 
 		redirect_to photo_path(@photo)
 	end

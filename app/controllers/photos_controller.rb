@@ -29,7 +29,7 @@ class PhotosController < ApplicationController
 
 	def update
 		if @photo.update(photo_params)
-			redirect_to @photo , notice: 'Good Job!'
+			redirect_to @photo, notice: 'Good Job!'
 		else
 			render 'edit'
 		end
