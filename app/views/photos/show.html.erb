@@ -11,7 +11,7 @@
 </p>
 
 <div id="comments">
-	<h2><%= @photo.comments.count %> Comments</h2>
+	<h2><%= pluralize(@photo.comments.count, "Comment") %></h2>
 	<%= render @photo.comments %>
 		
 	<h3>Add a comment</h3>
