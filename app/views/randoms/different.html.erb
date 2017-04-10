@@ -1,0 +1,4 @@
+<%= link_to @random_photo.title, photo_path(@random_photo) %>
+<%= link_to (image_tag @random_photo.image.url(:large)), photo_path(@random_photo) %>
+<br/>
+<%= link_to "Back", root_path %>

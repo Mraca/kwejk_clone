@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   end
 
   root 'photos#index'
+
+  get '/different', to: 'randoms#different'
+
 end
