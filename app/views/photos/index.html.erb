@@ -15,8 +15,8 @@
 	<%= photo.get_likes.size %> likes
 	<%= photo.get_dislikes.size %> dislikes
 	</br>
-	<%= link_to "Like", like_photo_path(photo), method: :get %>
-	<%= link_to "Dislike", dislike_photo_path(photo), method: :get %>
+	<%= link_to "", like_photo_path(photo), method: :get, class:"fa fa-plus"  %>
+	<%= link_to "", dislike_photo_path(photo), method: :get, class:"fa fa-minus" %>
 
 	<div id="comments">
 		<h2><%= pluralize(photo.comments.count, "Comment") %></h2>
