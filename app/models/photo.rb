@@ -1,4 +1,6 @@
 class Photo < ActiveRecord::Base
+	acts_as_votable
+	
 	validates :title, presence: true, length: { minimum: 5 }
 
 	has_attached_file :image, styles: { large: "400x600>", medium: "300x300>", thumb: "100x100#" }

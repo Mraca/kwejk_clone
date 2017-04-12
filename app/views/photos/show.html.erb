@@ -10,6 +10,11 @@
 	Add <%= time_ago_in_words (@photo.created_at) %> ago by <%= @photo.user.name %>
 </p>
 
+<p><%= @photo.get_upvotes.size %> likes </p>
+<p><%= @photo.get_downvotes.size %> dislikes </p>
+<%= link_to "Like", like_photo_path(@photo), method: :get %>
+<%= link_to "Dislike", dislike_photo_path(@photo), method: :get %>
+
 <div id="comments">
 	<h2><%= pluralize(@photo.comments.count, "Comment") %></h2>
 	<%= render @photo.comments %>

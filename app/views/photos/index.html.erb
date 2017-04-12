@@ -12,6 +12,12 @@
 		<p>Submitted by <%= photo.user.name %></p>
 	</div>
 
+	<%= photo.get_likes.size %> likes
+	<%= photo.get_dislikes.size %> dislikes
+	</br>
+	<%= link_to "Like", like_photo_path(photo), method: :get %>
+	<%= link_to "Dislike", dislike_photo_path(photo), method: :get %>
+
 	<div id="comments">
 		<h2><%= pluralize(photo.comments.count, "Comment") %></h2>
 	</div>
