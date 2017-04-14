@@ -1,26 +1,30 @@
-<h1>All photos</h1>
-
 <% @photos.each do |photo| %>
-	<div class="page_wrapper">
-		<h2 class="title">
-			<%= link_to photo.title, photo %>
-		</h2>
-		<div class="image">
-			<%= link_to (image_tag photo.image.url(:medium)), photo %>
+ <article>
+ 	<%= link_to photo.title, photo, class:"photo__title" %>
+ 	<%= link_to (image_tag photo.image.url(:medium)), photo, class:"photo__img" %>
+ 	
+
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="photo__votes"><%= photo.cached_votes_score %></div> 
+ 			<%= link_to "", like_photo_path(photo), method: :get, class:"fa fa-plus photo__button"  %>
+			<%= link_to "", dislike_photo_path(photo), method: :get, class:"fa fa-minus photo__button" %>
 		</div>
-
-		<p>Submitted by <%= photo.user.name %></p>
+		<div class="col-sm-6 photo__comments">
+			<%= pluralize(photo.comments.count, "Comment") %>
+		</div>
 	</div>
-
-	<%= photo.get_likes.size %> likes
-	<%= photo.get_dislikes.size %> dislikes
-	</br>
-	<%= link_to "", like_photo_path(photo), method: :get, class:"fa fa-plus"  %>
-	<%= link_to "", dislike_photo_path(photo), method: :get, class:"fa fa-minus" %>
-
-	<div id="comments">
-		<h2><%= pluralize(photo.comments.count, "Comment") %></h2>
-	</div>
+ </article>
 <% end %>
+
+
+
+
+
+
+
+
+
+	
 
 <%= will_paginate @photos, renderer: BootstrapPagination::Rails, previous_label: "Older", next_label: "Newer" %>

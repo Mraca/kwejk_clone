@@ -51,7 +51,7 @@ class PhotosController < ApplicationController
 	end
 
 	def toprated
-		@top_photos = Photo.all.order(:cached_votes_up => :desc)
+		@top_photos = Photo.all.order(:cached_votes_score => :desc)
 	end
 
 	def random

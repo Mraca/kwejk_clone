@@ -1,0 +1,21 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+@import "colors";
+
+@import "photos";
+@import "comments";
+
+
+.navbar-default{
+	border-radius: 0;
+}
+
+body {
+	background-color: $bg;
+}
+
+.container {
+	max-width: 600px;
+}
