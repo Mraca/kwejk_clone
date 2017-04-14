@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   root 'photos#index'
 
-  get '/different', to: 'randoms#different'
+  get '/random', to: 'photos#random'
+  get '/toprated', to: 'photos#toprated'
 
 end

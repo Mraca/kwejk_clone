@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412151600) do
+ActiveRecord::Schema.define(version: 20170414185555) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -24,13 +24,21 @@ ActiveRecord::Schema.define(version: 20170412151600) do
 
   create_table "photos", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
+    t.integer  "cached_votes_total", default: 0
+    t.integer  "cached_votes_score", default: 0
+    t.integer  "cached_votes_up",    default: 0
+    t.integer  "cached_votes_down",  default: 0
+    t.index ["cached_votes_down"], name: "index_photos_on_cached_votes_down"
+    t.index ["cached_votes_score"], name: "index_photos_on_cached_votes_score"
+    t.index ["cached_votes_total"], name: "index_photos_on_cached_votes_total"
+    t.index ["cached_votes_up"], name: "index_photos_on_cached_votes_up"
   end
 
   create_table "users", force: :cascade do |t|
