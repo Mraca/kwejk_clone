@@ -10,25 +10,36 @@
 
   <body>
 
-  <%= link_to "Home", root_path %>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+          <%= link_to "Kwejk Clone", root_path, class:"navbar-brand" %>
+      </div>
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <li><%= link_to "New Photo", new_photo_path %></li>
+        <% end %>
+           <li><%= link_to "Random", random_path %></li>
+           <li><%= link_to "Top Rated", toprated_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li><%= link_to "Account", edit_user_registration_path %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+          <% end %>
+      </ul>
+    </div>
+  </nav>
 
-  <% if user_signed_in? %>
-    <%= link_to "New Photo", new_photo_path %>
-    <%= link_to "Account", edit_user_registration_path %>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign Up", new_user_registration_path %>
-    <%= link_to "Sign In", new_user_session_path %>
-  <% end %>
-  <br/>
-  <h2><%= link_to "Random", random_path %></h2>
-  <br/>
-  <h2><%= link_to "Top Rated", toprated_path %></h2>
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <div class="container">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     
     <%= yield %>
-
+  </div>
+  
   </body>
 </html>
