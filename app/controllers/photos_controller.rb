@@ -58,6 +58,14 @@ class PhotosController < ApplicationController
 		@random_photo = Photo.where.not(id: @photo).order("RANDOM()").first
 	end
 
+	def search
+		if params[:search].present?
+      		@photos = Photo.search(params[:search])
+    	else
+      		@photos = Photo.all
+    	end
+	end
+
 	private
 
 	def photo_params

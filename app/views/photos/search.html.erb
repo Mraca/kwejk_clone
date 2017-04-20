@@ -1,0 +1,18 @@
+<% @photos.each do |photo| %>
+ <article>
+ 	<%= link_to photo.title, photo, class:"photo__title" %>
+ 	<%= link_to (image_tag photo.image.url(:medium)), photo, class:"photo__img" %>
+ 	
+
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="photo__votes"><%= photo.cached_votes_score %></div> 
+ 			<%= link_to "", like_photo_path(photo), method: :get, class:"fa fa-plus photo__button"  %>
+			<%= link_to "", dislike_photo_path(photo), method: :get, class:"fa fa-minus photo__button" %>
+		</div>
+		<div class="col-sm-6 photo__comments">
+			<%= pluralize(photo.comments.count, "Comment") %>
+		</div>
+	</div>
+ </article>
+<% end %>

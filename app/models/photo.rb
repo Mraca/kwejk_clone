@@ -1,5 +1,6 @@
 class Photo < ActiveRecord::Base
 	acts_as_votable
+	searchkick
 	
 	validates :title, presence: true, length: { minimum: 5 }
 

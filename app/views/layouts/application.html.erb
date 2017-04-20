@@ -13,7 +13,7 @@
   <nav class="navbar navbar-default navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-          <%= link_to "Kwejk Clone", root_path, class:"navbar-brand" %>
+          <%= link_to "Kwejk Clone", root_path, class: "navbar-brand" %>
       </div>
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
@@ -22,6 +22,12 @@
            <li><%= link_to "Random", random_path %></li>
            <li><%= link_to "Top Rated", toprated_path %></li>
       </ul>
+      
+      <%= form_tag search_photos_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
+          <%= text_field_tag :search, params[:search], class: "form-control" %>
+          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+      <% end %>
+      
       <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li><%= link_to "Account", edit_user_registration_path %></li>
